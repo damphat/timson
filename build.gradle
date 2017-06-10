@@ -1,0 +1,20 @@
+plugins {
+  id "org.jetbrains.kotlin.jvm" version "1.1.2"
+}
+
+group "com.damphat"
+version "0.1-SNAPSHOT"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.2"
+    testCompile "org.jetbrains.kotlin:kotlin-test:1.1.2"
+    testCompile "org.testng:testng:+"
+}
+
+test {
+    useTestNG()
+}
