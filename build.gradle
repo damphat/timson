@@ -1,6 +1,15 @@
-plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.1.2"
+buildscript {
+    ext.kotlin_version = '1.1.2-4'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+    }
 }
+
+apply plugin: "kotlin"
 
 group "com.damphat"
 version "0.1-SNAPSHOT"
@@ -10,15 +19,14 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.2"
-    testCompile "org.jetbrains.kotlin:kotlin-test:1.1.2"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     testCompile "org.testng:testng:+"
 }
 
-// Test Logging
 tasks.withType(Test) {
     testLogging {
-        events "standardOut", "started", "passed", "skipped", "failed"
+        events "standardOut", "passed", "skipped", "failed"
     }
 }
 
